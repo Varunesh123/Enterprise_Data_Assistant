@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.api.v1.auth import router as auth_router
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.catalogs import router as catalogs_router
+from app.api.v1.schemas import router as schemas_router
 
 app = FastAPI(
     title="Data Catalog Copilot",
@@ -34,5 +35,9 @@ app.include_router(
 )
 app.include_router(
     catalogs_router,
+    prefix="/api/v1"
+)
+app.include_router(
+    schemas_router,
     prefix="/api/v1"
 )

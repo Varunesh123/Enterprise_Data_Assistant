@@ -3,7 +3,10 @@ import {
   Plus,
   Search,
   Server,
+  ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 import { useEffect, useState } from "react";
 
@@ -284,9 +287,15 @@ export default function Catalog() {
                         {catalog.owner_team ||
                           "No owner"}
                       </p>
-
                     </div>
-
+                    
+                    <Link
+                      to={`/catalogs/${catalog.id}/schemas`}
+                      className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-indigo-600 transition hover:border-indigo-200 hover:bg-indigo-50"
+                    >
+                      Explore schemas
+                      <ArrowRight size={16} />
+                    </Link>
                   </div>
 
                 ),

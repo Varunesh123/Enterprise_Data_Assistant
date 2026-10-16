@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
 import Catalog from './pages/Catalog'
+import Schemas from './pages/Schemas'
 
 export default function App() {
   return (
@@ -15,8 +16,8 @@ export default function App() {
         <Route path='/register' element={<Register/>}/>
         <Route element={<ProtectedRoute/>}>
           <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route path="/catalog" element={<Catalog />}
-          />
+          <Route path="/catalog" element={<Catalog />}/>
+          <Route path='/catalogs/:catalogId/schemas' element={<Schemas/>} />
         </Route>
       </Routes>
     </BrowserRouter>

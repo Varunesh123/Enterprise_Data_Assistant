@@ -1,7 +1,7 @@
 from app.core.database import Base
 import uuid  
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import DateTime, String, Text, func
 from datetime import datetime
 
@@ -48,4 +48,8 @@ class Catalog(Base):
         onupdate=func.now(),
         nullable=False,
     )
-    
+    schemas = relationship(
+        "Schema",
+        back_populates="catalog",
+        cascade="all, delete-orphan",
+    )

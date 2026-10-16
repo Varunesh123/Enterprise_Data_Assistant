@@ -40,6 +40,7 @@ def register(
     existing_user = db.scalar(
         select(User).where(User.email == email)
     )
+    
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
